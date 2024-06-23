@@ -1,0 +1,367 @@
+<?xml version="1.0" ?>
+
+<sdf version='1.6'>
+  <world name="farm_on_mars">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <!-- <plugin
+      filename="libignition-gazebo-physics-system.so"
+      name="ignition::gazebo::systems::Physics">
+      <render_engine>ogre2</render_engine>
+    </plugin> -->
+    <!-- <plugin
+      filename="libignition-gazebo-sensors-system.so"
+      name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin> -->
+    <!-- <plugin
+      filename="libignition-gazebo-scene-broadcaster-system.so"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin> -->
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <pose>0 0 -0.2 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2 2 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2 2 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="energybot1">
+      <link name="base_link">
+        <inertial>
+          <pose>4.947386574344437e-05 3.69727636149967e-06 0.2063206729832077 0 0 0</pose>
+          <mass>184.42831079049344</mass>
+          <inertia>
+            <ixx>2.663181</ixx>
+            <ixy>4.9e-05</ixy>
+            <ixz>-0.001242</ixz>
+            <iyy>2.663734</iyy> 
+            <iyz>-0.000104</iyz>
+            <izz>2.718376</izz>
+          </inertia>
+        </inertial>
+        <visual name="base_link_visual1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/base_link.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Silver</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <collision name="base_link_collision1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/base_link.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>true</self_collide>
+        <gravity>true</gravity>
+      </link>
+      <link name="wheel_1_1">
+        <inertial>
+          <pose>-5.672276000806553e-05 -1.0146853210952665e-08 5.150149574167928e-09 0 0 0</pose>
+          <mass>0.3928101364288651</mass>
+          <inertia>
+            <ixx>0.000159</ixx>
+            <ixy>-0.0</ixy>
+            <ixz>-0.0</ixz>
+            <iyy>0.000101</iyy> 
+            <iyz>-0.0</iyz>
+            <izz>0.000101</izz>
+          </inertia>
+        </inertial>
+        <visual name="wheel_1_1_visual1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/wheel_1_1.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Silver</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <collision name="wheel_1_1_collision1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/wheel_1_1.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>true</self_collide>
+      </link>
+      <link name="wheel_2_1">
+        <inertial>
+          <pose>2.8338520443177417e-05 -4.9510160979343576e-05 6.468955225658046e-09 0 0 0</pose>
+          <mass>0.3928101364288651</mass>
+          <inertia>
+            <ixx>0.000115</ixx>
+            <ixy>-2.5e-05</ixy>
+            <ixz>-0.0</ixz>
+            <iyy>0.000145</iyy> 
+            <iyz>0.0</iyz>
+            <izz>0.000101</izz>
+          </inertia>
+        </inertial>
+        <visual name="wheel_2_1_visual1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/wheel_2_1.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Silver</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <collision name="wheel_2_1_collision1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/wheel_2_1.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>true</self_collide>
+      </link>
+      <link name="wheel_3_1">
+        <inertial>
+          <pose>2.8375160984195347e-05 4.951714439502264e-05 -2.434836562231757e-08 0 0 0</pose>
+          <mass>0.3928101364288651</mass>
+          <inertia>
+            <ixx>0.000115</ixx>
+            <ixy>-2.5e-05</ixy>
+            <ixz>0.0</ixz>
+            <iyy>0.000145</iyy> 
+            <iyz>-0.0</iyz>
+            <izz>0.000101</izz>
+          </inertia>
+        </inertial>
+        <visual name="wheel_3_1_visual1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/wheel_3_1.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Silver</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <collision name="wheel_3_1_collision1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/wheel_3_1.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>true</self_collide>
+      </link>
+      <link name="lidar_2_1">
+        <inertial>
+          <pose>-2.320379200916381e-16 6.381042802520046e-17 0.020507000000000053 0 0 0</pose>
+          <mass>1.538441088874157</mass>
+          <inertia>
+            <ixx>0.000801</ixx>
+            <ixy>-0.0</ixy>
+            <ixz>-0.0</ixz>
+            <iyy>0.000801</iyy> 
+            <iyz>0.0</iyz>
+            <izz>0.00117</izz>
+          </inertia>
+        </inertial>
+        <visual name="lidar_2_1_visual1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/lidar_2_1.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Silver</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <collision name="lidar_2_1_collision1">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://home/sees/CommLineProg/work/catkin2_ws/src/tribot2023urdf2/meshes/lidar_2_1.stl</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>true</self_collide>
+      </link>
+      
+      <joint name="Rev1" type="revolute">
+        <pose>-0.17874 0.0 0.029 0 0 0</pose>
+        <parent>base_link</parent>
+        <child>wheel_1_1</child>
+        <axis>
+          <xyz>-1.0 0.0 -0.0</xyz>
+        </axis>
+      </joint>
+      <joint name="Rev2" type="revolute">
+        <pose>0.08937 -0.154793 0.029 0 0 0</pose>
+        <parent>base_link</parent>
+        <child>wheel_2_1</child>
+        <axis>
+          <xyz>0.5 -0.866025 0.0</xyz>
+        </axis>
+      </joint>
+      <joint name="Rev3" type="revolute">
+        <pose>0.08937 0.154793 0.029 0 0 0</pose>
+        <parent>base_link</parent>
+        <child>wheel_3_1</child>
+        <axis>
+          <xyz>0.5 0.866025 0.0</xyz>
+        </axis>
+      </joint>
+      <joint name="Rigid1" type="fixed">
+        <pose>0.0 0.0 0.358 0 0 0</pose>
+        <parent>base_link</parent>
+        <child>lidar_2_1</child>
+      </joint>
+
+      <transmission name="Rev1_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Rev1">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Rev1_actr">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+      
+      <transmission name="Rev2_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Rev2">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Rev2_actr">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+      
+      <transmission name="Rev3_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Rev3">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Rev3_actr">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+      </transmission>
+    </model>
+  </world>
+</sdf>

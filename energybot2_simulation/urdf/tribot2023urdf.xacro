@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+<robot name="tribot2023urdf" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find tribot2023urdf_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find tribot2023urdf_description)/urdf/tribot2023urdf.trans" />
+<xacro:include filename="$(find tribot2023urdf_description)/urdf/tribot2023urdf.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="4.947386574344437e-05 3.69727636149967e-06 0.2063206729832077" rpy="0 0 0"/>
+    <mass value="184.42831079049344"/>
+    <inertia ixx="2.663181" iyy="2.663734" izz="2.718376" ixy="-4.9e-05" iyz="-0.000104" ixz="-0.001242"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_1_1">
+  <inertial>
+    <origin xyz="-5.672276000806553e-05 -1.0146853210952665e-08 5.150149574167928e-09" rpy="0 0 0"/>
+    <mass value="0.3928101364288651"/>
+    <inertia ixx="0.000159" iyy="0.000101" izz="0.000101" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.17874 -0.0 -0.029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.17874 -0.0 -0.029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_2_1">
+  <inertial>
+    <origin xyz="2.8338520443177417e-05 -4.9510160979343576e-05 6.468955225658046e-09" rpy="0 0 0"/>
+    <mass value="0.39281004012930903"/>
+    <inertia ixx="0.000115" iyy="0.000145" izz="0.000101" ixy="-2.5e-05" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.08937 0.154793 -0.029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.08937 0.154793 -0.029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_3_1">
+  <inertial>
+    <origin xyz="2.8375160984195347e-05 4.951714439502264e-05 -2.434836562231757e-08" rpy="0 0 0"/>
+    <mass value="0.39280924045812143"/>
+    <inertia ixx="0.000115" iyy="0.000145" izz="0.000101" ixy="2.5e-05" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.08937 -0.154793 -0.029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/wheel_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.08937 -0.154793 -0.029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/wheel_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_2_1">
+  <inertial>
+    <origin xyz="-2.320379200916381e-16 6.381042802520046e-17 0.020507000000000053" rpy="0 0 0"/>
+    <mass value="1.538441088874157"/>
+    <inertia ixx="0.000801" iyy="0.000801" izz="0.00117" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.0 -0.358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/lidar_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.0 -0.358" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://tribot2023urdf_description/meshes/lidar_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin xyz="-0.17874 0.0 0.029" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_1_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Rev2" type="continuous">
+  <origin xyz="0.08937 -0.154793 0.029" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_2_1"/>
+  <axis xyz="0.5 -0.866025 0.0"/>
+</joint>
+
+<joint name="Rev3" type="continuous">
+  <origin xyz="0.08937 0.154793 0.029" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_3_1"/>
+  <axis xyz="0.5 0.866025 0.0"/>
+</joint>
+
+<joint name="Rigid1" type="fixed">
+  <origin xyz="0.0 0.0 0.358" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_2_1"/>
+</joint>
+
+</robot>
